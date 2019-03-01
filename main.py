@@ -120,7 +120,7 @@ def home():
             })
 
     return render_template("index.html", files=sorted(files, key=lambda k: k["name"].lower()), folders=dirs, meta=meta)
-'''
+
 @app.route("/download/<filename>")
 def download(filename):
     filename = urllib.unquote(filename)
@@ -132,6 +132,6 @@ def download(filename):
     else:
         return render_template("not_found.html")
     return None
-'''
+
 if __name__ == "__main__":
     app.run(host="0.0.0.0", debug=True, port=80)
