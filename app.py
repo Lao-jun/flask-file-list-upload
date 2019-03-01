@@ -11,7 +11,8 @@ Dotfiles are hidden by default. You can change this in the config.
 You can edit the config down below...
 """
 
-from flask import Flask, render_template, send_from_directory, send_file
+from flask import Flask, render_template, send_from_directory, send_file, request
+from flask_dropzone import Dropzone
 import os
 from pprint import pprint
 import magic
@@ -35,9 +36,30 @@ ignore_dollarfiles = True
 omit_folders = True
 omit_files = False
 
+
+basedir = os.path.abspath(os.path.dirname(__file__))
+
+app.config.update(
+    UPLOADED_PATH=os.path.join(basedir, 'uploads'),
+    # Flask-Dropzone config:
+    # DROPZONE_ALLOWED_FILE_TYPE='default',
+
+    DROPZONE_MAX_FILE_SIZE=300,
+    DROPZONE_MAX_FILES=300,
+)
+app.config['DROPZONE_ALLOWED_FILE_CUSTOM'] = True
+app.config['DROPZONE_ALLOWED_FILE_TYPE'] = 'image/*, .pdf, .txt, .csv'
+
+dropzone = Dropzone(app)
+
 """ The base route with the file list """
-@app.route("/")
+@app.route('/', methods=['POST', 'GET'])
 def home():
+    if request.method == 'POST':
+        f = request.files.get('file')
+        f.save(os.path.join(app.config['UPLOADED_PATH'], f.filename))
+
+
     files = []
     dirs = []
 
@@ -112,4 +134,4 @@ def download(filename):
     return None
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", debug=True)
+    app.run(host="0.0.0.0", debug=True, port=80)
