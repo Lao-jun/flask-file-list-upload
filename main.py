@@ -54,7 +54,7 @@ dropzone = Dropzone(app)
 
 """ The base route with the file list """
 @app.route('/', methods=['POST', 'GET'])
-def home():
+def upload():
     if request.method == 'POST':
         f = request.files.get('file')
         f.save(os.path.join(app.config['UPLOADED_PATH'], f.filename))
