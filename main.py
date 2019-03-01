@@ -19,8 +19,7 @@ import magic
 import urllib
 import sys
 
-reload(sys)
-sys.setdefaultencoding('utf8')
+
 
 app = Flask(__name__)
 mime = magic.Magic(mime=True)
