@@ -94,7 +94,7 @@ def home():
                     "name": name,
                     "size": str(size) + " B",
                     "mime": mime.from_file(fullpath),
-                    "fullname": urllib.quote_plus(fullpath)
+                    "fullname": urllib.parse.quote_plus(fullpath)
                 })
 
         for dirname in dirnames:
