@@ -1,4 +1,6 @@
-Flask==0.10.1
+Flask
+Flask-Dropzone
+Flask-WTF
 gunicorn==19.4.1
 itsdangerous==0.24
 Jinja2==2.8
