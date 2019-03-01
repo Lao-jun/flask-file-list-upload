@@ -123,7 +123,7 @@ def upload():
 
 @app.route("/download/<filename>")
 def download(filename):
-    filename = urllib.unquote(filename)
+    filename = urllib.parse.unquote(filename)
     if os.path.isfile(filename):
         if os.path.dirname(filename) == base_directory.rstrip("/"):
             return send_file(filename, as_attachment=True)
