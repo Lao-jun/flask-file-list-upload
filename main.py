@@ -27,15 +27,6 @@ mime = magic.Magic(mime=True)
 """
 This is the configuration
 """
-# To list the current directory of the script, use os.path.dirname(os.path.abspath(__file__))
-base_directory = os.path.dirname(os.path.abspath(__file__))
-# These directories will not be listed
-ignored_dirs = ["venv"]
-ignore_dotfiles = True
-ignore_dollarfiles = True
-omit_folders = True
-omit_files = False
-
 
 basedir = os.path.abspath(os.path.dirname(__file__))
 
@@ -49,6 +40,15 @@ app.config.update(
 )
 app.config['DROPZONE_ALLOWED_FILE_CUSTOM'] = True
 app.config['DROPZONE_ALLOWED_FILE_TYPE'] = 'image/*, .pdf, .txt, .csv'
+
+# To list the current directory of the script, use os.path.dirname(os.path.abspath(__file__))
+base_directory = os.path.join(basedir, 'uploads')
+# These directories will not be listed
+ignored_dirs = ["venv"]
+ignore_dotfiles = True
+ignore_dollarfiles = True
+omit_folders = True
+omit_files = False
 
 dropzone = Dropzone(app)
 
