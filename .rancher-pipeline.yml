@@ -6,7 +6,7 @@ stages:
       buildContext: .
       tag: flask-file-list-upload:${CICD_EXECUTION_SEQUENCE}
       pushRemote: true
-      registry: 192.168.143.79:30002
+      registry: 192.168.143.79:30003
 - name: deploy
   steps:
   - applyYamlConfig:
