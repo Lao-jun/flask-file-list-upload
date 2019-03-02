@@ -6,7 +6,7 @@ stages:
       buildContext: .
       tag: flask-file-list-upload:${CICD_EXECUTION_SEQUENCE}
       pushRemote: true
-      registry: server79:30003
+      registry: core.harbor.domain
 - name: deploy
   steps:
   - applyYamlConfig:
