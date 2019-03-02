@@ -9,7 +9,7 @@ spec:
   revisionHistoryLimit: 10
   selector:
     matchLabels:
-      workload.user.cattle.io/workloadselector: deployment-default-uwsgi-nginx-flask
+      workload.user.cattle.io/workloadselector: deployment-default-flask-file-list-upload
   strategy:
     rollingUpdate:
       maxSurge: 1
