@@ -5,7 +5,8 @@ stages:
       dockerfilePath: ./Dockerfile
       buildContext: .
       tag: flask-file-list-upload:${CICD_EXECUTION_SEQUENCE}
-      registry: 192.168.143.251:5000
+      pushRemote: true
+      registry: 192.168.143.79:30002
 - name: deploy
   steps:
   - applyYamlConfig:
