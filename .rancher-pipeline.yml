@@ -4,8 +4,7 @@ stages:
   - publishImageConfig:
       dockerfilePath: ./Dockerfile
       buildContext: .
-      tag: example/app:v1
-      pushRemote: true
+      tag: flask-file-list-upload
       registry: 192.168.143.251:5000
 - name: deploy
   steps:
