@@ -5,7 +5,8 @@ stages:
       dockerfilePath: ./Dockerfile
       buildContext: .
       tag: example/app:v1
-      registry: 127.0.0.1:34868
+      pushRemote: true
+      registry: 192.168.143.251:5000
 - name: deploy
   steps:
   - applyYamlConfig:
