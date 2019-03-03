@@ -4,8 +4,8 @@ stages:
   - publishImageConfig:
       dockerfilePath: ./Dockerfile
       buildContext: .
-      tag: test/flask-file-list-upload:${CICD_EXECUTION_SEQUENCE}
-      registry: core.harbor.domain
+      tag: flask-file-list-upload:${CICD_EXECUTION_SEQUENCE}
+      registry: 127.0.0.1:34868
 - name: deploy
   steps:
   - applyYamlConfig:
