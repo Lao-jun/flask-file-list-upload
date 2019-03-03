@@ -48,9 +48,16 @@ spec:
         terminationMessagePath: /dev/termination-log
         terminationMessagePolicy: File
         tty: true
+        volumeMounts:
+        - mountPath: /app/uploads/
+          name: uploads
       dnsPolicy: ClusterFirst
       restartPolicy: Always
       schedulerName: default-scheduler
       securityContext: {}
+      volumes:
+      - name: uploads
+        persistentVolumeClaim:
+          claimName: mynfselk
       terminationGracePeriodSeconds: 30
 
