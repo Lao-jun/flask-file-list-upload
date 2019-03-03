@@ -8,16 +8,12 @@ stages:
       pushRemote: true
       registry: core.harbor.domain
     env:
-      PLUGIN_DEBUG: "true"  
+      PLUGIN_DEBUG: "true"
 - name: deploy
   steps:
   - applyYamlConfig:
       path: ./deployment.yaml
     envFrom:
-    - sourceName: registry-crt
+    - sourceName: harbor-ca
       sourceKey: ca.crt
-    - sourceName: registry-crt
-      sourceKey: client.cert
-    - sourceName: registry-crt
-      sourceKey: client.key
 timeout: 60
