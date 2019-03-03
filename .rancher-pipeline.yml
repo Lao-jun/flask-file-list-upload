@@ -12,6 +12,6 @@ stages:
   - applyYamlConfig:
       path: ./deployment.yaml
     envFrom:
-    - sourceName: registry-crt
+    - sourceName: harbor-ca
       sourceKey: ca.crt
 timeout: 60
