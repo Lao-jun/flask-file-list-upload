@@ -6,6 +6,8 @@ stages:
       buildContext: .
       tag: flask-file-list-upload:${CICD_EXECUTION_SEQUENCE}
       registry: 127.0.0.1:34868
+  env:
+      PLUGIN_DEBUG: "true"  
 - name: deploy
   steps:
   - applyYamlConfig:
