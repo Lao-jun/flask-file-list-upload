@@ -5,13 +5,16 @@ stages:
       dockerfilePath: ./Dockerfile
       buildContext: .
       tag: flask-file-list-upload:${CICD_EXECUTION_SEQUENCE}
-      pushRemote: true
-      registry: core.harbor.domain
+      registry: 127.0.0.1:34868
 - name: deploy
   steps:
   - applyYamlConfig:
       path: ./deployment.yaml
     envFrom:
-    - sourceName: harbor-ca
+    - sourceName: registry-crt
       sourceKey: ca.crt
+    - sourceName: registry-crt
+      sourceKey: client.cert
+    - sourceName: registry-crt
+      sourceKey: client.key
 timeout: 60
