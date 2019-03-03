@@ -6,7 +6,7 @@ stages:
       buildContext: .
       tag: test/flask-file-list-upload:${CICD_EXECUTION_SEQUENCE}
       pushRemote: true
-      registry: core.harbor.domain
+      registry: my-harbor-harbor-portal
     env:
       PLUGIN_DEBUG: "true"
 - name: deploy
