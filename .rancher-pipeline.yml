@@ -4,8 +4,7 @@ stages:
   - publishImageConfig:
       dockerfilePath: ./Dockerfile
       buildContext: .
-      tag: test/flask-file-list-upload:${CICD_EXECUTION_SEQUENCE}
-      pushRemote: true
+      tag: flask-file-list-upload:${CICD_EXECUTION_SEQUENCE}
       registry: 127.0.0.1:34868
     env:
       PLUGIN_DEBUG: "true"
@@ -14,6 +13,10 @@ stages:
   - applyYamlConfig:
       path: ./deployment.yaml
     envFrom:
-    - sourceName: harbor-ca
+    - sourceName: registry-crt
       sourceKey: ca.crt
+    - sourceName: registry-crt
+      sourceKey: client.cert
+    - sourceName: registry-crt
+      sourceKey: client.key
 timeout: 60
