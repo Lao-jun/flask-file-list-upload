@@ -1,3 +1,3 @@
 FROM tiangolo/uwsgi-nginx-flask
-COPY / /app/
+ADD . /app/
 RUN pip install -r /app/requirements.txt
