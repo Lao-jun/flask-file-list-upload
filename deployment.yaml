@@ -3,6 +3,7 @@ kind: Deployment
 metadata:
   name: flask-file-list-upload
   selfLink: /apis/apps/v1beta2/namespaces/default
+  namespace: default
 spec:
   progressDeadlineSeconds: 600
   replicas: 1
